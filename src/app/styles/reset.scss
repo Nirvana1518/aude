@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+
+  /* Сглаживание шрифтов для лучшего отображения */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Настройки для изображений */
+img {
+  /* Изображения не выходят за рамки контейнера */
+  max-width: 100%;
+  /* Убираем лишнее пространство под изображениями */
+  display: block;
+}
+
+/* Стили для ссылок */
+a {
+  /* Убираем подчеркивание */
+  text-decoration: none;
+  /* Задаём наследование цвета от родительского элемента */
+  color: inherit;
+}

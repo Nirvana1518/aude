@@ -1,0 +1,68 @@
+:root {
+  /* -- Переменные для телефонов (по умолчанию) -- */
+
+  --font-family-main: "Montserrat", sans-serif;
+
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  /* Добавляем переменные для заголовков */
+  --font-size-h1: 32px;
+  --font-line-h1: 40px;
+  --font-h1: var(--font-size-h1) / var(--font-line-h1) var(--font-family-main);
+
+  // Отступы
+  --container-width: 100%;
+  --page-padding-x: 20px;
+  --page-padding-y: 20px;
+}
+
+@media (min-width: 768px) {
+  /* -- Переменные для планшетов -- */
+  :root {
+    --font-size-m: 18px;
+    --font-line-m: 28px;
+    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+    --font-size-l: 28px;
+    --font-line-l: 36px;
+    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+    --font-size-h1: 40px;
+    --font-line-h1: 50px;
+    --font-h1: var(--font-size-h1) / var(--font-line-h1) var(--font-family-main);
+
+    // отступы
+    --container-width: 720px;
+    --page-padding-x: 40px;
+    --page-padding-y: 40px;
+  }
+}
+
+/* -- Переменные для десктопов -- */
+@media (min-width: 1200px) {
+  :root {
+    // fonts
+    --font-size-m: 20px;
+    --font-line-m: 30px;
+    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+    --font-size-l: 32px;
+    --font-line-l: 40px;
+    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+    --font-size-h1: 48px;
+    --font-line-h1: 60px;
+    --font-h1: var(--font-size-h1) / var(--font-line-h1) var(--font-family-main);
+
+    // отступы
+    --container-width: 1140px; /* Максимальная ширина контента на десктопах */
+    --page-padding-x: 95px; /* Отступ по бокам от краёв экрана */
+    --page-padding-y: 70px; /* Отступ сверху/снизу, от краёв экрана */
+  }
+}

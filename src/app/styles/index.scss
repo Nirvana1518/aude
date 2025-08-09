@@ -1,0 +1,15 @@
+@use "reset";
+@use "global";
+@use "./themes/light";
+@use "./themes/dark";
+
+.app {
+  font-family: var(--font-family-main);
+  background: var(--bg-color);
+
+  font-size: var(--font-size-m);
+  line-height: var(--font-line-m);
+  color: var(--primary-color);
+
+  min-height: 100vh;
+}
