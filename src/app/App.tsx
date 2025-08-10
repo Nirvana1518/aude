@@ -7,12 +7,14 @@ export const App = () => {
   const currentUserId = "123";
 
   return (
-    <Container>
-      <div className="app">
+    <div className="app light">
+      <Container>
         <Link to={`/user/${currentUserId}`}>Мой профиль</Link>
         <Link to={`/gallery/${currentUserId}`}>Галерея</Link>
+        <Link to="/login">Войти</Link>
+        <Link to="/registration">Регистрация</Link>
         <AppRoutes />
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
