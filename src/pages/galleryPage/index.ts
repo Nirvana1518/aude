@@ -1,1 +1,1 @@
-export { GalleryPage } from "./GalleryPage";
+export { GalleryPage } from "./ui/GalleryPage";
