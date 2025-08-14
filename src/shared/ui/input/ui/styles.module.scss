@@ -1,0 +1,33 @@
+.form_input {
+  border-radius: 10px;
+  border: none;
+  background-color: var(--input-bg-color);
+  color: var(--text-gray-color);
+  font-weight: bold;
+  outline: none;
+  padding: 6px 10px;
+  width: 90%;
+  max-width: 400px;
+  // Убираем фиксированную высоту, размер будет определяться padding и font-size.
+  font-size: var(--font-size-m);
+}
+.form_input:focus {
+  border: 2px solid var(--primary-color);
+}
+
+.form_input_wrong {
+  border: 2px solid var(--error-color);
+}
+
+.visually_hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
