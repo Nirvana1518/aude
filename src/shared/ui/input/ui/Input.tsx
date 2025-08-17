@@ -3,28 +3,25 @@ import styles from "./styles.module.scss";
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   isWrong?: boolean;
+  hideLabel?: boolean;
 }
 
 export const Input = (props: InputProps) => {
-  const { label, isWrong, id, ...otherProps } = props;
+  const { label, isWrong, id, hideLabel, ...otherProps } = props;
 
-  const inputClassses = `${styles.form_input} ${
+  const inputClasses = `${styles.form_input} ${
     isWrong ? styles.form_input_wrong : ""
   }`;
+  const labelClasses = `${styles.form_label} ${
+    hideLabel ? styles.visually_hidden : ""
+  }`;
+
   return (
-    <>
-      <label htmlFor="firstName" className={styles.visually_hidden}>
-        Имя
+    <div className={styles.form_group}>
+      <label htmlFor={id} className={labelClasses}>
+        {label}
       </label>
-      <input
-        id={props.id}
-        name={props.label}
-        className={styles.form_input}
-        type="text"
-        placeholder={props.placeholder}
-        // TODO: закончить логику инпута
-        required
-      />
-    </>
+      <input id={id} className={inputClasses} {...otherProps} />
+    </div>
   );
 };

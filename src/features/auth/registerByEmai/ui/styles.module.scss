@@ -1,21 +1,8 @@
-.register_page {
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 60px;
-  align-items: center;
-  background-color: var(--bg-color);
-}
-
 .register_form {
+  margin-top: 40px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  // Убираем space-around, чтобы отступы контролировались только через margin и gap,
-  // что делает верстку более предсказуемой.
   align-items: center;
 
   .form_title {
@@ -25,55 +12,14 @@
     margin-top: 20px;
   }
 
-  .form_inputs {
-    margin-top: 40px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
   .submit_button {
     margin-top: 40px;
     margin-bottom: 25px;
-    padding: 12px 35px;
-    // Убираем фиксированную высоту для лучшей адаптивности.
-    background-color: var(--primary-color);
-    color: var(--text-white-color);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: var(--font-size-m);
-    font-weight: 600;
-  }
-}
-.block_links {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  .link {
-    color: var(--link-text-color);
-    text-decoration: underline;
-  }
-  .link_button {
-    background: none;
-    border: none;
-    padding: 0;
-    color: var(--link-text-color);
-    font-family: inherit;
-    font-size: inherit;
-    cursor: pointer;
-    text-decoration: underline;
   }
 }
 
 @media (min-width: 1200px) {
-  .block_links {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  .register_form {
+    margin-top: 0;
   }
 }
