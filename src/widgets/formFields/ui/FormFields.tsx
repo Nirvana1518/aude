@@ -1,61 +1,78 @@
 import styles from "./styles.module.scss";
 import { Input } from "@/shared/ui/input";
+import type { FormFieldsProps, RegisterFormValues } from "../model/types";
 
-interface FormFieldsProps {
-  formData: Record<string, string>;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-export const FormFields = (props: FormFieldsProps) => {
+export const FormFields = ({ register, errors, watch }: FormFieldsProps) => {
   const formFieldsData = [
     {
-      label: "Имя",
-      id: "firstName",
       name: "firstName",
+      label: "Имя",
       type: "text",
       placeholder: "имя",
+      validation: { required: "Имя обязательно для заполнения" },
     },
     {
-      label: "Фамилия",
-      id: "lastName",
       name: "lastName",
+      label: "Фамилия",
       type: "text",
-      placeholder: "фамилия",
+      placeholder: "фамилия (не обязательно)",
     },
     {
-      label: "Email",
-      id: "email",
       name: "email",
+      label: "Email",
       type: "email",
       placeholder: "email",
+      validation: {
+        required: "Email обязателен для заполнения",
+        pattern: {
+          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, // <-- Исправлено
+          message: "Некорректный адрес",
+        },
+      },
     },
     {
-      label: "Пароль",
-      id: "password",
       name: "password",
+      label: "Пароль",
       type: "password",
       placeholder: "пароль",
+      validation: {
+        required: "Пароль обязателен для заполнения",
+        minLength: {
+          value: 8,
+          message: "Пароль должен содержать не менее 8 символов",
+        },
+        pattern: {
+          value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/, // <-- Исправлено
+          message:
+            "Пароль должен содержать хотя бы одну заглавную букву и одну цифру.", // <-- Исправлена опечатка
+        },
+      },
     },
     {
-      label: "Повторите пароль",
-      id: "confirmPassword",
       name: "confirmPassword",
+      label: "Повторите пароль",
       type: "password",
       placeholder: "повторите пароль",
+      validation: {
+        required: "Повторите пароль, чтобы мы видели, что вы его помните.",
+        validate: (value: string) => {
+          return value === watch("password") || "Пароли не совпадают";
+        },
+      },
     },
   ];
+
   return (
     <div className={styles.form_inputs}>
       {formFieldsData.map((item) => (
         <Input
           label={item.label}
-          id={item.id}
-          name={item.name}
           type={item.type}
           placeholder={item.placeholder}
-          key={item.id}
-          value={props.formData[item.name]}
-          onChange={props.handleChange}
+          key={item.name}
+          {...register(item.name as keyof RegisterFormValues, item.validation)}
+          error={errors[item.name as keyof RegisterFormValues]?.message}
+          isWrong={!!errors[item.name as keyof RegisterFormValues]}
           hideLabel
         />
       ))}
