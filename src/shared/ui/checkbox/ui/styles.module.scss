@@ -3,34 +3,34 @@
   align-items: center;
   justify-content: space-around;
   gap: 10px;
+}
 
-  .checkbox_label {
-    color: var(--text-color-primary);
-  }
+.checkbox_label {
+  color: var(--text-color-primary);
+}
 
-  .checkbox_input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    border: 1px solid var(--secondary-color); /* Обводка в обычном состоянии */
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.2s ease-in-out;
-  }
+.checkbox_input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--secondary-color); /* Обводка в обычном состоянии */
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
 
-  .checkbox_input:hover {
-    border-color: var(--primary-color);
-  }
+.checkbox_input:hover {
+  border-color: var(--primary-color);
+}
 
-  .checkbox_input:focus {
-    box-shadow: 0 0 0 3px var(--focus-color);
-  }
+.checkbox_input:focus {
+  box-shadow: 0 0 0 3px var(--focus-color);
+}
 
-  .checkbox_input:checked {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-  }
+.checkbox_input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
 }

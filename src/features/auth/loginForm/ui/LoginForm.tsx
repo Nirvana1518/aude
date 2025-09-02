@@ -1,9 +1,10 @@
 import { useCustomForm } from "@/shared/hooks/useCustomForm";
 import styles from "./styles.module.scss";
 import { Input } from "@/shared/ui/input";
-import { type SubmitHandler } from "react-hook-form";
+import { Controller, type SubmitHandler } from "react-hook-form";
 import { Button } from "@/shared/ui/buttons/UniversalButton";
 import { Checkbox } from "@/shared/ui/checkbox";
+import { loginData } from "../lib/loginData";
 import { Link } from "react-router-dom";
 import { FormLinksPanel } from "@/widgets/formLinksPanel/ui/FormLinksPanel";
 
@@ -16,26 +17,10 @@ interface LoginFormValues {
 export const LoginForm = () => {
   const {
     register,
-    handleSubmit,
     formState: { errors },
+    control,
+    handleSubmit,
   } = useCustomForm<LoginFormValues>();
-
-  const loginData = [
-    {
-      name: "login",
-      label: "Введите логин, или адрес электронной почты",
-      type: "text",
-      placeholder: "Введите логин, или адрес электронной почты",
-      validation: { required: "А ты кто вообще? ;/" },
-    },
-    {
-      name: "password",
-      label: "Введите пароль",
-      type: "password",
-      placeholder: "Введите пароль",
-      validation: { required: "Без пароля нельзя" },
-    },
-  ];
 
   const onSubmit: SubmitHandler<LoginFormValues> = (data) => {
     console.log("Данные формы входа отправлены:", data);
@@ -49,17 +34,23 @@ export const LoginForm = () => {
           type={item.type}
           placeholder={item.placeholder}
           key={item.name}
-          hideLabel
-          {...register(item.name as keyof LoginFormValues, item.validation)}
-          error={errors[item.name as keyof LoginFormValues]?.message}
-          isWrong={!!errors[item.name as keyof LoginFormValues]}
+          {...register(item.name, item.validation)}
+          error={errors[item.name]?.message}
+          isWrong={!!errors[item.name]}
         />
       ))}
-
-      <Checkbox
-        id="remember"
-        label="Запомнить меня"
-        {...register("remember")}
+      <Controller
+        control={control}
+        name="remember"
+        render={({ field }) => (
+          <Checkbox
+            label={"Запомнить меня"}
+            id={"remember"}
+            checked={field.value}
+            onChange={field.onChange}
+            ref={field.ref}
+          />
+        )}
       />
 
       <Button variant="primary" type="submit" className={styles.submit_button}>
@@ -67,8 +58,7 @@ export const LoginForm = () => {
       </Button>
       <FormLinksPanel className={styles.form_links_panel}>
         <Link to="/register">Нет аккаунта?</Link>
-        <Button variant="link">Забыли пароль?</Button>{" "}
-        {/* TODO: ЗДЕСЬ НАДО БУДЕТ ДОДЕЛАТЬ КНОПКУ НАЗАД */}
+        <Link to="/forgot-password">Забыли пароль?</Link>
       </FormLinksPanel>
     </form>
   );
