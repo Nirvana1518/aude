@@ -1,0 +1,65 @@
+.form_group {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 350px; // Ограничиваем максимальную ширину для больших экранов
+}
+
+.form_label {
+  margin-bottom: 5px;
+  color: var(--text-gray-color);
+  font-size: var(--font-size-s);
+  align-self: flex-start; // Выравниваем лейбл по левому краю
+}
+
+.form_input {
+  border-radius: 10px;
+  border: none;
+  background-color: var(--input-bg-color);
+  color: var(--text-gray-color);
+  font-weight: bold;
+  outline: none;
+  padding: 12px 15px;
+  width: 100%; // Поле будет занимать всю ширину родителя (.form_group)
+  box-sizing: border-box; // Чтобы padding и border не влияли на общую ширину
+  font-size: var(--font-size-m);
+
+  // Убираем стандартный белый фон при автозаполнении в Chrome/Safari
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    // Используем большой внутренний box-shadow, чтобы перекрасить фон
+    -webkit-box-shadow: 0 0 0 30px var(--input-bg-color) inset !important;
+    // Также принудительно устанавливаем цвет текста
+    -webkit-text-fill-color: var(--text-gray-color) !important;
+  }
+}
+
+.form_input:focus {
+  border: 2px solid var(--primary-color);
+}
+
+.form_input_wrong {
+  border: 2px solid var(--error-color);
+}
+
+.visually_hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+  .form_input {
+    padding: 10px 12px;
+    font-size: var(--font-size-s);
+  }
+}

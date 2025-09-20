@@ -1,0 +1,10 @@
+.logo_title {
+  text-align: center;
+  margin-top: 80px;
+}
+
+@media (min-width: 1200px) {
+  .logo_title {
+    margin: 0;
+  }
+}
