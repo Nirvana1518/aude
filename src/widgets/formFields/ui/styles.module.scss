@@ -1,0 +1,14 @@
+.form_inputs {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+@media (min-width: 1200px) {
+  .form_inputs {
+    gap: 20px;
+  }
+}

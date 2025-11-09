@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  /* Шрифты */
+  --font-family-main: "Montserrat", sans-serif;
+  --font-family-secondary: "EB Garamond", serif;
+
+  /* Размеры шрифтов для МОБИЛЬНЫХ (по умолчанию) */
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+
+  --font-size-h1: 32px;
+  --font-line-h1: 40px;
+
+  /* Отступы для МОБИЛЬНЫХ */
+  --container-width: 100%;
+  --page-padding-x: 20px;
+  --page-padding-y: 20px;
+}
+
+/* === МЕДИА-ЗАПРОСЫ ЧЕРЕЗ КЛАССЫ === */
+
+/* Для планшетов */
+@media (min-width: 768px) {
+  .tablet {
+    --font-size-m: 18px;
+    --font-line-m: 28px;
+
+    --font-size-l: 28px;
+    --font-line-l: 36px;
+
+    --font-size-h1: 40px;
+    --font-line-h1: 50px;
+
+    --container-width: 720px;
+    --page-padding-x: 40px;
+    --page-padding-y: 40px;
+  }
+}
+
+/* Для десктопов */
+@media (min-width: 1200px) {
+  .desktop {
+    --font-size-xs: 10px;
+    --font-line-xs: 16px;
+
+    --font-size-s: 14px;
+    --font-line-s: 20px;
+
+    --font-size-m: 20px;
+    --font-line-m: 30px;
+
+    --font-size-l: 32px;
+    --font-line-l: 40px;
+
+    --font-size-h1: 48px;
+    --font-line-h1: 60px;
+
+    --container-width: 1140px;
+    --page-padding-x: 95px;
+    --page-padding-y: 70px;
+  }
+}

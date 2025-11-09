@@ -1,0 +1,35 @@
+.button {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  padding: 12px 25px;
+}
+
+.primary {
+  background-color: var(--primary-color);
+  color: var(--text-white-color);
+}
+
+.secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--link-text-color);
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (min-width: 1200px) {
+  .button {
+    font-size: var(--font-size-s);
+  }
+}
